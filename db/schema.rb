@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_26_003358) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_26_075858) do
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "location"
+    t.integer "salary"
+    t.integer "company_id"
+    t.text "requirements"
+    t.text "benefits"
+    t.string "employment_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_jobs_on_company_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "receiver_id", null: false
@@ -41,6 +55,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_26_003358) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "jobs", "users", column: "company_id"
   add_foreign_key "messages", "receivers"
   add_foreign_key "messages", "senders"
   add_foreign_key "profiles", "users"

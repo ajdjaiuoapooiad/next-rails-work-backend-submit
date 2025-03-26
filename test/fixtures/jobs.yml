@@ -1,15 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  company: one
   title: MyString
   description: MyText
-  salary: 1
   location: MyString
+  salary: 1
+  company_id: 1
+  requirements: MyText
+  benefits: MyText
+  employment_type: MyString
 
 two:
-  company: two
   title: MyString
   description: MyText
-  salary: 1
   location: MyString
+  salary: 1
+  company_id: 1
+  requirements: MyText
+  benefits: MyText
+  employment_type: MyString
