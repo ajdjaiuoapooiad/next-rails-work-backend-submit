@@ -1,5 +1,5 @@
 class Api::V1::JobsController < ApplicationController
-  before_action :authorize_request, except: [:index] 
+  before_action :authorize_request, except: [:index, :show] 
   before_action :set_job, only: [:show, :update, :destroy]
   before_action :require_company, only: [:create, :update, :destroy] # 企業ユーザーのみ許可
 

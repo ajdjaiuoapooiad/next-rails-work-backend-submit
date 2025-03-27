@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :create, :update, :destroy] do
         resources :profiles, only: [:create, :update, :show]
       end
+      get 'users/show_by_id/:id', to: 'users#show_by_id'
 
       # 求人情報関連
       resources :jobs, only: [:index, :show, :create, :update, :destroy]
