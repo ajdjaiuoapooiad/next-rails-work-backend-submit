@@ -2,7 +2,7 @@ databases:
   - name: mysite3
     databaseName: mysite3
     user: mysite3
-    plan: starter # 新しいプランに変更
+    plan: production # 新しいプランに変更
 
 services:
   - type: web
