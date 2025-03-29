@@ -2,13 +2,17 @@ databases:
   - name: mysite3
     databaseName: mysite3
     user: mysite3
+    region: singapore
     plan: basic-256mb # 新しいプランに変更
 
 services:
   - type: web
     name: mysite3
-    runtime: ruby
+    env: ruby
+    region: singapore
     plan: free # 有料プランに変更
+    branch: main
+    healthCheckPath: /api/v1/jobs
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec rails server"
     envVars:
@@ -17,6 +21,6 @@ services:
           name: mysite3
           property: connectionString
       - key: RAILS_MASTER_KEY
-        sync: false
+        generateValue: true
       - key: WEB_CONCURRENCY
         value: 2 # sensible default
