@@ -10,7 +10,6 @@ services:
     runtime: ruby
     plan: free # 有料プランに変更
     buildCommand: "./bin/render-build.sh"
-    preDeployCommand: "bundle exec rails db:migrate" # 有料プランでのみ利用可能
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
