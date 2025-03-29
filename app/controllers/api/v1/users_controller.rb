@@ -4,11 +4,11 @@ class Api::V1::UsersController < ApplicationController
 
 
     def show_by_id
-      @user = User.find(params[:id])
+      @user = User.find_by(id: params[:id])
       if @user
-        render json: { id: @user.id, name: @user.name }
+        render json: { id: @user.id, name: @user.name, user_type: @user.user_type }
       else
-        render json: { error: 'User not found' }, status: :not_found
+        render json: { error: "User with id #{params[:id]} not found" }, status: :not_found
       end
     end
   

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
       # 認証関連
       post '/login', to: 'authentication#login'
+      delete '/auth/logout', to: 'authentication#logout' # 追加
     end
   end
 end
