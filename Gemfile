@@ -13,12 +13,11 @@ gem "bootsnap", require: false
 gem "rack-cors"
 
 
-group :development, :test do
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem "brakeman", require: false
-  gem "rubocop-rails-omakase", require: false
-  gem 'bcrypt', '~> 3.1.20' # バージョンを更新
-  gem 'jwt'
-end
+gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+gem "brakeman", require: false
+gem "rubocop-rails-omakase", require: false
+gem 'bcrypt', '~> 3.1.20' # バージョンを更新
+gem 'jwt'
+
 
 # gem "image_processing", "~> 1.2" # 必要に応じてコメントアウトを解除
