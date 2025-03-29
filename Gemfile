@@ -51,6 +51,9 @@ group :development, :test do
   gem 'bcrypt', '~> 3.1.7' # Rails 7の場合は、最新のbcryptを試してみてください。
 
   gem 'jwt'
+
+  gem 'sprockets-rails'
+
 end
 
 

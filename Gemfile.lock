@@ -223,6 +223,13 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
+    sprockets (4.2.1)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.5.2)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      sprockets (>= 3.0.0)
     sqlite3 (2.6.0-x64-mingw-ucrt)
     sqlite3 (2.6.0-x86_64-linux-gnu)
     stringio (3.1.6)
@@ -257,6 +264,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.2.0)
   rubocop-rails-omakase
+  sprockets-rails
   sqlite3 (>= 1.4)
   tzinfo-data
 
