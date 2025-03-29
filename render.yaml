@@ -2,15 +2,15 @@ databases:
   - name: mysite3
     databaseName: mysite3
     user: mysite3
-    plan: free
+    plan: standard # 有料プランに変更
 
 services:
   - type: web
     name: mysite3
     runtime: ruby
-    plan: free
+    plan: standard # 有料プランに変更
     buildCommand: "./bin/render-build.sh"
-    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    preDeployCommand: "bundle exec rails db:migrate" # 有料プランでのみ利用可能
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
