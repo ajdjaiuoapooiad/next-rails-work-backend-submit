@@ -3,7 +3,12 @@ class Api::V1::MessagesController < ApplicationController
 
   def index
     @messages = Message.where(sender_id: current_user.id).or(Message.where(receiver_id: current_user.id))
-    render json: @messages
+    render json: @messages.map { |message|
+      message.as_json.merge(
+        sender_username: message.sender&.name,
+        receiver_username: message.receiver&.name
+      )
+    }
   end
 
   def create
