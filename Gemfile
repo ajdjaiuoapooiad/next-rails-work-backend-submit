@@ -4,7 +4,7 @@ gem "rails", "~> 7.2.0"
 gem "sqlite3", ">= 1.4"
 
 group :production do
-  gem "pg", "1.3.5"
+  gem "pg", "1.5.9"
 end
 
 gem "puma", ">= 5.0"
