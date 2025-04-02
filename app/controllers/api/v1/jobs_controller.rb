@@ -4,14 +4,17 @@ class Api::V1::JobsController < ApplicationController
   before_action :require_company, only: [:create, :update, :destroy] # 企業ユーザーのみ許可
 
   def index
-    @jobs = Job.all
+    @jobs = Job.all.map do |job|
+      job.as_json.merge(user_name: job.company&.name) # 修正: job.user&.name -> job.company&.name
+    end
     render json: @jobs
   end
 
   def show
-    render json: @job
+    render json: @job.as_json.merge(user_name: @job.company&.name) # 修正: job.user&.name -> job.company&.name
   end
 
+  
   def create
     @job = current_user.jobs.build(job_params) # current_userは企業ユーザー
     if @job.save
