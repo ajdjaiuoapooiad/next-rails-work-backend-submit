@@ -1,9 +1,19 @@
 class Api::V1::ProfilesController < ApplicationController
-    before_action :authorize_request
+    before_action :authorize_request, except: [:show]
     before_action :set_profile, only: [:show, :update]
   
     def show
-      render json: @profile
+      if params[:user_id]
+        @profile = User.find(params[:user_id]).profile
+      else
+        @profile = current_user.profile
+      end
+  
+      if @profile
+        render json: @profile
+      else
+        render json: { error: 'プロファイルが見つかりません。' }, status: :not_found
+      end
     end
   
     def create
@@ -30,6 +40,10 @@ class Api::V1::ProfilesController < ApplicationController
     end
   
     def set_profile
-      @profile = current_user.profile
+      if params[:user_id]
+        @profile = User.find(params[:user_id]).profile
+      else
+        @profile = current_user.profile
+      end
     end
   end
